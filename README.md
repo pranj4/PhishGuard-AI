@@ -32,43 +32,13 @@ Agent A analyzes the email and forwards results to Agent B, which verifies and c
 
 ## Architecture
 
-```
-User (Streamlit UI)
-   ↓
-Agent A (Analyzer - FastAPI + LangGraph)
-   ↓ (A2A over HTTP)
-Agent B (Verifier - FastAPI + LangGraph)
+<img width="1407" height="1146" alt="ai_agents" src="https://github.com/user-attachments/assets/0aedcb9c-6936-4d1e-b86a-03556a806f12" />
+
+
 ```
 
 - **Agent A**: Detects phishing indicators using LLM prompts
 - **Agent B**: Performs secondary verification (keywords, domains)
-
----
-
-## Project Structure
-
-```
-phishguard-ai/
-│
-├── agents/
-│   ├── agent_a_langgraph.py    # Analyzer logic
-│   └── agent_b_verifier.py     # Verifier logic
-│
-├── services/
-│   ├── agent_a_service.py      # FastAPI wrapper for Agent A
-│   └── agent_b_service.py      # FastAPI wrapper for Agent B
-│
-├── utils/
-│   ├── email_input_example.py  # Sample phishing emails
-│   └── link_checker.py         # URL & keyword check utilities
-│
-├── prompts.py                  # Prompt templates for LLMs
-├── pipeline.py                 # Monolithic pipeline (optional)
-├── app.py                      # Streamlit UI
-├── test_a2a_pipeline.py        # Test script for A2A pipeline
-├── requirements.txt
-└── README.md
-```
 
 ---
 
@@ -134,30 +104,21 @@ Open browser: [http://localhost:8501](http://localhost:8501)
 
 ## Screenshots
 
-*(Add screenshots of UI here)*
+<img width="1908" height="868" alt="image" src="https://github.com/user-attachments/assets/cd9f3b27-4ba1-4f1b-aa5f-6247bfc7c0d2" />
+
+<img width="1888" height="520" alt="image" src="https://github.com/user-attachments/assets/ca32d417-5aac-4cfc-8b6a-3301892c6637" />
+
+
 
 ---
 
 ## Deployment
 
-### Option 1: Streamlit Cloud (UI only)
 
-- Host Agent APIs separately (Render/Heroku/VPS)
-- Point Streamlit app to public API URLs
-
-### Option 2: Merge All-In-One (For Simplicity)
 
 - Run LangGraph logic directly inside Streamlit app (no A2A)
 
-*(Detailed deployment instructions below)*
 
----
-
-## Roadmap
-
--
-
----
 
 ## Contributing
 
@@ -165,11 +126,7 @@ Pull requests and feature suggestions are welcome. Open an issue for discussion 
 
 ---
 
-## License
 
-MIT License
-
----
 
 ## Credits
 
